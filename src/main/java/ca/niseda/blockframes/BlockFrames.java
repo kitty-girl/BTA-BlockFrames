@@ -2,6 +2,7 @@ package ca.niseda.blockframes;
 
 import ca.niseda.blockframes.registry.BFBlocks;
 import ca.niseda.blockframes.registry.BFItems;
+import ca.niseda.blockframes.registry.BFRecipes;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,9 @@ public class BlockFrames implements ModInitializer {
 	public void onInitialize() {
 		CommonEvents.AFTER_BLOCK_INIT.listen(Key.of(MOD_ID), BFBlocks::registerBlocks);
 		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), BFItems::registerItems);
+
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), BFRecipes::initRecipes);
+		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID), BFRecipes::initNamespaces);
 
 		TOML.addCategory("IDs")
 			.addEntry("starting_block_id", 5100)
