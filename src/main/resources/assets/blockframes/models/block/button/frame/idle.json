@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button/idle",
+  "textures": {
+    "texture": "blockframes:block/block_frame"
+  }
+}

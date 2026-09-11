@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/door/top_left",
+  "textures": {
+    "top": "blockframes:block/block_frame"
+  }
+}

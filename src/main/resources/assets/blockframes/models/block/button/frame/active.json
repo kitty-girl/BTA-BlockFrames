@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button/active",
+  "textures": {
+    "texture": "blockframes:block/block_frame"
+  }
+}

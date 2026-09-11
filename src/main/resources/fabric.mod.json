@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "blockframes",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Block Frames",
+	"description": "This mod adds new blocks that take the texture of others.",
 	"authors": [
-		"Turnip Labs"
+		"k8ee_katt"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,11 +16,14 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"ca.niseda.blockframes.BlockFrames"
+		],
+		"client": [
+			"ca.niseda.blockframes.BlockFramesClient"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"blockframes.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
