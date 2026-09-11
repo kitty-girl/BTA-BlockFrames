@@ -1,5 +1,6 @@
 package ca.niseda.blockframes.block;
 
+import ca.niseda.blockframes.registry.BFItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
@@ -19,10 +20,21 @@ public interface IBlockLogicFrame {
 		ItemStack item = player.getHeldItem();
 		TileEntityFrame tile = (TileEntityFrame) world.getTileEntity(tilePos);
 		if (tile != null && item != null) {
-			if (item.getItem() instanceof ItemBlock<?> itemBlock && !(itemBlock.getBlock().getLogic() instanceof IBlockLogicFrame) && itemBlock.getBlock().getLogic().isCubeShaped()) {
+			if (
+				tile.item == null &&
+				item.getItem() instanceof ItemBlock<?> itemBlock &&
+				!(itemBlock.getBlock().getLogic() instanceof IBlockLogicFrame)
+			) {
 				tile.item = item.copy();
 				tile.item.stackSize = 1;
 				item.consumeItem(player);
+				world.notifyBlockChange(tilePos, world.getBlockType(tilePos));
+				return true;
+			} else if (tile.item != null && item.getItem().equals(BFItems.HAMMER)) {
+				tile.dropItem(world, tilePos);
+				return true;
+			} else if (tile.item != null && item.getItem().equals(BFItems.WRENCH)) {
+				tile.textureId += player.isSneaking() ? 1 : -1;
 				world.notifyBlockChange(tilePos, world.getBlockType(tilePos));
 				return true;
 			}

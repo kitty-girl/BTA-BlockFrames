@@ -35,8 +35,27 @@ public class BFModels {
 		 dispatcher.addDispatch(BFBlocks.FRAME_PRESSURE_PLATE_PLAYER, new BlockModelFramePressurePlate<>(BFBlocks.FRAME_PRESSURE_PLATE_PLAYER));
 
 		 dispatcher.addDispatch(BFBlocks.FRAME_LEVER, new BlockModelFrameLever<>(BFBlocks.FRAME_LEVER).render3D(false));
+
+		 dispatcher.addDispatch(BFBlocks.FRAME_GHOST, new BlockModelFrameStandard<>(BFBlocks.FRAME_GHOST));
+
+		 dispatcher.addDispatch(BFBlocks.FRAME_SLAB_VERTICAL, new BlockModelFrameVerticalSlab<>(
+			 BFBlocks.FRAME_SLAB_VERTICAL,
+			 BlockModelDispatcher.loadDataModel("blockframes:block/vertical_slab/frame/single"),
+			 BlockModelDispatcher.loadDataModel("blockframes:block/vertical_slab/frame/double")
+		 ));
 	 }
 	public static void initItemModels(ItemModelDispatcher dispatcher) {
+		dispatcher.addDispatch(BFItems.HAMMER, new ItemModelStandard(BFItems.HAMMER)
+			.setDisplayPos("firstperson_righthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_RIGHT_HAND)
+			.setDisplayPos("firstperson_lefthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_LEFT_HAND)
+			.setDisplayPos("thirdperson_righthand", ItemModelDispatcher.HANDHELD_THIRD_PERSON_RIGHT_HAND)
+			.setDisplayPos("thirdperson_lefthand", ItemModelDispatcher.HANDHELD_THIRD_PERSON_LEFT_HAND));
+		dispatcher.addDispatch(BFItems.WRENCH, new ItemModelStandard(BFItems.WRENCH)
+			.setDisplayPos("firstperson_righthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_RIGHT_HAND)
+			.setDisplayPos("firstperson_lefthand", ItemModelDispatcher.HANDHELD_FIRST_PERSON_LEFT_HAND)
+			.setDisplayPos("thirdperson_righthand", ItemModelDispatcher.HANDHELD_THIRD_PERSON_RIGHT_HAND)
+			.setDisplayPos("thirdperson_lefthand", ItemModelDispatcher.HANDHELD_THIRD_PERSON_LEFT_HAND));
+
 		dispatcher.addDispatch(BFItems.FRAME_DOOR_WOOD, new ItemModelStandard(BFItems.FRAME_DOOR_WOOD));
 		dispatcher.addDispatch(BFItems.FRAME_DOOR_IRON, new ItemModelStandard(BFItems.FRAME_DOOR_IRON));
 	}

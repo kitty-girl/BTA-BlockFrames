@@ -46,7 +46,8 @@ public class BFBlocks {
 	public static Block<BlockLogicFramePressurePlate<Mob>> FRAME_PRESSURE_PLATE_MOB;
 	public static Block<BlockLogicFramePressurePlate<Player>> FRAME_PRESSURE_PLATE_PLAYER;
 	public static Block<BlockLogicFrameLever> FRAME_LEVER;
-	public static Block<?> FRAME_SLAB_VERTICAL;
+	public static Block<BlockLogicFrameStandardGhost> FRAME_GHOST;
+	public static Block<BlockLogicFrameVerticalSlab> FRAME_SLAB_VERTICAL;
 
 	public static void registerBlocks() {
 		FRAME = blockFrameBuilder.build("frame", blockId++, BlockLogicFrameStandard::new).withLitInteriorSurface(true);
@@ -93,5 +94,11 @@ public class BFBlocks {
 
 		FRAME_LEVER = blockFrameBuilder.build("frame_lever", blockId++, (block) -> new BlockLogicFrameLever(FRAME_LEVER));
 		EntityHelper.addMapping(TileEntityFrame.class, new NamespaceID(BlockFrames.MOD_ID, "frame_lever"));
+
+		FRAME_GHOST = blockFrameBuilder.build("frame_ghost", blockId++, (block) -> new BlockLogicFrameStandardGhost(FRAME_GHOST));
+		EntityHelper.addMapping(TileEntityFrame.class, new NamespaceID(BlockFrames.MOD_ID, "frame_ghost"));
+
+		FRAME_SLAB_VERTICAL = blockFrameBuilder.build("frame_vertical_slab", blockId++, (block) -> new BlockLogicFrameVerticalSlab(FRAME_SLAB_VERTICAL));
+		EntityHelper.addMapping(TileEntityFrame.class, new NamespaceID(BlockFrames.MOD_ID, "frame_vertical_slab"));
 	}
 }

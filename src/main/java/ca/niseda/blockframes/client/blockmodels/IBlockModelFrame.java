@@ -22,6 +22,11 @@ import java.util.List;
 public interface IBlockModelFrame {
 	IconCoordinate framedTexture = TextureRegistry.getTexture("blockframes:block/block_frame");
 
+	private static int wrap(int k, int n) {
+		int remainder = k % n;
+		return (remainder < 0) ? remainder + n : remainder;
+	}
+
 	default IconCoordinate getBlockTextureFromSideAndMetadata(@NotNull Side side, int data) {
 		return framedTexture;
 	}
@@ -32,10 +37,10 @@ public interface IBlockModelFrame {
 			if (blockModel instanceof BlockModelGeneric<?> blockModelGeneric) {
 				if (blockModelGeneric.getModelFromData(tileEntityFrame.item.getMetadata()) instanceof StaticBlockModelMojang staticBlockModelMojang) {
 					List<IconCoordinate> texList = staticBlockModelMojang.compiled.textures.values().stream().toList();
-					return texList.get(0);
+					return texList.get(wrap(tileEntityFrame.textureId, texList.size()-1));
 				}
 			} else if (blockModel instanceof BlockModelStandard<?> blockModelStandard && !(blockModelStandard instanceof IBlockModelFrame)) {
-				return blockModelStandard.getBlockTexture(source, tilePos, Side.TOP);
+				return blockModelStandard.getBlockTexture(source, tilePos, Side.fromId(wrap(tileEntityFrame.textureId, 6)));
 			}
 		}
 		return framedTexture;
