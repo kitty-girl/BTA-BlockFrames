@@ -1,7 +1,5 @@
 classTweaker  v1  official
 
-accessible field org/useless/dragonfly/models/block/mojang/StaticBlockModelMojang compiled Lorg/useless/dragonfly/data/block/mojang/CompiledBlockModelMojangData;
-
 accessible field net/minecraft/client/render/block/model/BlockModelFenceThin texIndex Lnet/minecraft/client/render/texture/stitcher/IconCoordinate;
 mutable field net/minecraft/client/render/block/model/BlockModelFenceThin texIndex Lnet/minecraft/client/render/texture/stitcher/IconCoordinate;
 accessible field net/minecraft/client/render/block/model/BlockModelFenceThin columnTexIndex Lnet/minecraft/client/render/texture/stitcher/IconCoordinate;

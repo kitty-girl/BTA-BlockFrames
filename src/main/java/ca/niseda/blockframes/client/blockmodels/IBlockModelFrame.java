@@ -1,6 +1,7 @@
 package ca.niseda.blockframes.client.blockmodels;
 
 import ca.niseda.blockframes.block.TileEntityFrame;
+import ca.niseda.blockframes.mixin.StaticBlockModelMojangAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModel;
@@ -36,7 +37,7 @@ public interface IBlockModelFrame {
 			BlockModel<?> blockModel = BlockModelDispatcher.getInstance().getDispatch(itemBlock.getBlock());
 			if (blockModel instanceof BlockModelGeneric<?> blockModelGeneric) {
 				if (blockModelGeneric.getModelFromData(tileEntityFrame.item.getMetadata()) instanceof StaticBlockModelMojang staticBlockModelMojang) {
-					List<IconCoordinate> texList = staticBlockModelMojang.compiled.textures.values().stream().toList();
+					List<IconCoordinate> texList = ((StaticBlockModelMojangAccessor) staticBlockModelMojang).blockframes$getCompiled().textures.values().stream().toList();
 					return texList.get(wrap(tileEntityFrame.textureId, texList.size()-1));
 				}
 			} else if (blockModel instanceof BlockModelStandard<?> blockModelStandard && !(blockModelStandard instanceof IBlockModelFrame)) {
