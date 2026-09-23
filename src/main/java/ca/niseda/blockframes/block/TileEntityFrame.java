@@ -4,6 +4,8 @@ import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.entity.EntityItem;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.net.packet.Packet;
+import net.minecraft.core.net.packet.PacketTileEntityData;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.pos.TilePos;
 import net.minecraft.core.world.pos.TilePosc;
@@ -43,5 +45,10 @@ public class TileEntityFrame extends TileEntity {
 	public void dropContents(World world, int x, int y, int z) {
 		super.dropContents(world, x, y, z);
 		dropItem(world, new TilePos(x,y,z));
+	}
+
+	@Override
+	public Packet getDescriptionPacket() {
+		return new PacketTileEntityData(this);
 	}
 }
