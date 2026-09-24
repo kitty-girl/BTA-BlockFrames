@@ -1,5 +1,6 @@
-package ca.niseda.blockframes.client.blockmodels;
+package ca.niseda.blockframes.client.blockmodels.frame;
 
+import ca.niseda.blockframes.client.blockmodels.IBlockModelFrame;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
@@ -8,7 +9,6 @@ import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicLever;
-import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePosc;
 import org.jetbrains.annotations.NotNull;
@@ -17,10 +17,10 @@ import org.useless.dragonfly.models.block.StaticBlockModel;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelFrameLever<T extends BlockLogicLever> extends BlockModelGeneric<T> implements IBlockModelFrame {
-	public @NotNull StaticBlockModel active = BlockModelDispatcher.loadDataModel("blockframes:block/frame_lever_active").asModel();
+	public @NotNull StaticBlockModel active = BlockModelDispatcher.loadDataModel("blockframes:block/lever/frame/active").asModel();
 
 	public BlockModelFrameLever(@NotNull Block<T> block) {
-		super(block, BlockModelDispatcher.loadDataModel("blockframes:block/frame_lever_idle"));
+		super(block, BlockModelDispatcher.loadDataModel("blockframes:block/lever/frame/idle"));
 	}
 	public boolean renderAttached(@NotNull TessellatorGeneral tessellator, @NotNull WorldSource worldSource, @NotNull TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {
 		int data = worldSource.getBlockData(tilePos);
@@ -48,9 +48,6 @@ public class BlockModelFrameLever<T extends BlockLogicLever> extends BlockModelG
 
 	@Override
 	public boolean render(@NotNull TessellatorGeneral tessellator, @NotNull WorldSource worldSource, @NotNull TilePosc tilePos) {
-		return super.renderWithOverrideTexture(tessellator,worldSource,tilePos, getBlockTexture(worldSource, tilePos, Side.TOP));
-	}
-	public IconCoordinate getBlockTexture(@NotNull WorldSource source, @NotNull TilePosc tilePos, @NotNull Side side) {
-		return IBlockModelFrame.super.getBlockTexture(source,tilePos,side);
+		return super.renderWithOverrideTexture(tessellator,worldSource,tilePos, getBlockTexture(worldSource, tilePos));
 	}
 }

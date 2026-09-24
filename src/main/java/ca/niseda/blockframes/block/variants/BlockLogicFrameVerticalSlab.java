@@ -1,6 +1,6 @@
 package ca.niseda.blockframes.block.variants;
 
-import ca.niseda.blockframes.block.BlockLogicVerticalSlab;
+import ca.niseda.blockframes.block.types.BlockLogicVerticalSlab;
 import ca.niseda.blockframes.block.IBlockLogicFrame;
 import ca.niseda.blockframes.registry.BFBlocks;
 import net.minecraft.core.block.Block;

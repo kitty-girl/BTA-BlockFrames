@@ -5,7 +5,7 @@
 
 package ca.niseda.blockframes.client.blockmodels;
 
-import ca.niseda.blockframes.block.BlockLogicVerticalSlab;
+import ca.niseda.blockframes.block.types.BlockLogicVerticalSlab;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;

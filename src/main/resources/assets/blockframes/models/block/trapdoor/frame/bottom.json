@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/trapdoor/bottom",
+  "textures": {
+    "texture": "blockframes:block/block_frame",
+    "side": "blockframes:block/block_frame"
+  }
+}

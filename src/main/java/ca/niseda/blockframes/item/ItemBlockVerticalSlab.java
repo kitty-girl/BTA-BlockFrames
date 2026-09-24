@@ -5,7 +5,7 @@
 
 package ca.niseda.blockframes.item;
 
-import ca.niseda.blockframes.block.BlockLogicVerticalSlab;
+import ca.niseda.blockframes.block.types.BlockLogicVerticalSlab;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.entity.player.Player;

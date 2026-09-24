@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence/side",
+  "textures": {
+    "texture": "blockframes:block/block_frame"
+  }
+}

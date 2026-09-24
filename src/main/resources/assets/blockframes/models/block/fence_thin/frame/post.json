@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_thin/post",
+  "textures": {
+    "column": "blockframes:block/block_frame"
+  }
+}

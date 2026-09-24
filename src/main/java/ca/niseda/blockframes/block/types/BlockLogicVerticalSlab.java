@@ -1,4 +1,4 @@
-package ca.niseda.blockframes.block;
+package ca.niseda.blockframes.block.types;
 
 import ca.niseda.blockframes.item.ItemBlockVerticalSlab;
 import net.minecraft.core.block.*;

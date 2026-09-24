@@ -28,11 +28,7 @@ public interface IBlockModelFrame {
 		return (remainder < 0) ? remainder + n : remainder;
 	}
 
-	default IconCoordinate getBlockTextureFromSideAndMetadata(@NotNull Side side, int data) {
-		return framedTexture;
-	}
-
-	default IconCoordinate getBlockTexture(@NotNull WorldSource source, @NotNull TilePosc tilePos, @NotNull Side side) {
+	default IconCoordinate getBlockTexture(@NotNull WorldSource source, @NotNull TilePosc tilePos) {
 		if (source.getTileEntity(tilePos) instanceof TileEntityFrame tileEntityFrame && tileEntityFrame.item != null && tileEntityFrame.item.getItem() instanceof ItemBlock<?> itemBlock) {
 			BlockModel<?> blockModel = BlockModelDispatcher.getInstance().getDispatch(itemBlock.getBlock());
 			if (blockModel instanceof BlockModelGeneric<?> blockModelGeneric) {

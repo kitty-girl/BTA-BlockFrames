@@ -1,6 +1,6 @@
 package ca.niseda.blockframes.registry;
 
-import ca.niseda.blockframes.client.blockmodels.*;
+import ca.niseda.blockframes.client.blockmodels.frame.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
